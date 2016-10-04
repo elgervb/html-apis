@@ -3,6 +3,7 @@
     "rules": {
         "indent": [2, 4],
         "no-debugger": 1,
+        "class-methods-use-this": 0,
         "no-restricted-syntax": [
             2,
             "ForInStatement",
