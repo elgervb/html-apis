@@ -2,10 +2,12 @@
 export default class Map {
 
     init() {
+        const here = new google.maps.LatLng(51.846, 5.86);
+
         /* eslint-disable no-new */
         new google.maps.Map(document.getElementById('map'), {
-            center: { lat: -34.397, lng: 150.644 },
-            zoom: 8,
+            center: here,
+            zoom: 15,
             disableDefaultUI: true,
         });
         /* eslint-enable no-new */
