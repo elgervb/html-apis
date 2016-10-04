@@ -1,0 +1,22 @@
+{
+    "extends": "airbnb-base",
+    "rules": {
+        "indent": [2, 4],
+        "no-debugger": 1,
+        "no-restricted-syntax": [
+            2,
+            "ForInStatement",
+            "LabeledStatement",
+            "WithStatement"
+        ],
+		"linebreak-style": 0,
+        "no-trailing-spaces": 0,
+        "no-plusplus": 0,
+        "no-underscore-dangle": 0,
+        "one-var": [2, { "var": "always", "let": "always", "const": "never" }],
+        "one-var-declaration-per-line": [2, "initializations"]
+    },
+    "env": {
+        "browser": true
+    }
+}
