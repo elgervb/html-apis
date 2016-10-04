@@ -1,21 +1,40 @@
 /* global google */
 export default class Map {
 
-    init() {
-        const here = new google.maps.LatLng(51.846, 5.86);
-
-        /* eslint-disable no-new */
+    createMap(here) {
         const map = new google.maps.Map(document.getElementById('map'), {
             center: here,
-            zoom: 12,
+            zoom: 15,
             disableDefaultUI: true,
         });
-        /* eslint-enable no-new */
-        const marker = this.createMarker(here, map);
-        const info = this.createInfoWindow(here);
-        marker.addListener('click', () => {
-            info.open(map);
-        });
+
+        return map;
+    }
+
+    getCurrentPosition(success = () => {}, error = () => {}) {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition((position) => {
+                success(position);
+            }, (err) => {
+                let msg;
+                switch (err.code) {
+                case err.PERMISSION_DENIED :
+                    msg = 'Permission denied';
+                    break;
+                case err.POSITION_UNAVAILABLE :
+                    msg = 'Position unavailable';
+                    break;
+                case err.TIMEOUT :
+                    msg = 'Timeout while determining position';
+                    break;
+                default :
+                    msg = 'Unknown error occured';
+                }
+                error(msg);
+            });
+        } else {
+            error('HTML 5 GeoLocation API not supported');
+        }
     }
 
     createMarker(position, map) {
@@ -28,9 +47,9 @@ export default class Map {
         return marker;
     }
 
-    createInfoWindow(position) {
+    createInfoWindow(position, text) {
         const coordInfoWindow = new google.maps.InfoWindow();
-        coordInfoWindow.setContent('<h1>You are here</h1>');
+        coordInfoWindow.setContent(text);
         coordInfoWindow.setPosition(position);
 
         return coordInfoWindow;
