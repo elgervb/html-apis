@@ -1,13 +1,13 @@
 /* global google */
-import Map from './geo/map';
 import MapLoader from './loader/MapLoader';
 import GeoLocation from './geo/geolocation';
+import Map from './geo/map';
 
 document.addEventListener('DOMContentLoaded', () => {
     const apiKey = 'AIzaSyAfdup00-KX0Co-SRqkdf9eMdG2Yt493UE';
 
     MapLoader.load(apiKey, () => {
-        const defaultLoc = new google.maps.LatLng(51.846, 5.86);
+        const defaultLoc = Map.createCoordinate(51.846, 5.86);
         const gmap = Map.createMap(document.getElementById('map'), defaultLoc);
 
         const geo = new GeoLocation((position) => {
@@ -16,7 +16,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 lng: position.coords.longitude,
             };
             const marker = gmap.createMarker(here);
-            const info = gmap.createInfoWindow(here, `<h1>You are here</h1>
+
+            marker.setAnimation(google.maps.Animation.BOUNCE);
+            // stop animation after n seconds
+            setTimeout(() => {
+                marker.setAnimation(null);
+            }, 3000);
+
+            const info = Map.createInfoWindow(here, `<h1>You are here</h1>
                     <p>Latitude: ${here.lat}</p>
                     <p>Longitude: ${here.lng}</p>`
             );
@@ -28,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 info.open(gmap.getMap(), marker);
             });
         }, (error) => {
-            const info = gmap.createInfoWindow(defaultLoc, `<h2>${error}</h2>`);
+            const info = Map.createInfoWindow(defaultLoc, `<h2>${error}</h2>`);
             info.open(gmap.getMap());
         });
 

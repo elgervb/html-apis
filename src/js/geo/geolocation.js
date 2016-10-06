@@ -1,6 +1,10 @@
 
 export default class GeoLocation {
 
+    /**
+     * @param {function(Coordinates) : void} onSuccess
+     * @param {function(string) : void} onError
+     */
     constructor(onSuccess, onError) {
         this.onSuccess = onSuccess;
         this.onError = onError;
