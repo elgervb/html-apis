@@ -11,32 +11,27 @@ document.addEventListener('DOMContentLoaded', () => {
         const gmap = Map.createMap(document.getElementById('map'), defaultLoc);
 
         const geo = new GeoLocation((position) => {
-            const here = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude,
-            };
+            const here = Map.createCoordinate(position.coords.latitude, position.coords.longitude);
             const marker = gmap.createMarker(here);
+            const info = Map.createInfoWindow(here, `<h1>You are here</h1>
+                    <p>Latitude:${here.lat()}</p>
+                    <p>Longitude:${here.lng()}</p>`
+            );
+            gmap.map.panTo(here);
 
             marker.setAnimation(google.maps.Animation.BOUNCE);
-            // stop animation after n seconds
+            // stop animation and show info window after n seconds
             setTimeout(() => {
                 marker.setAnimation(null);
+                info.open(gmap.map, marker);
             }, 3000);
 
-            const info = Map.createInfoWindow(here, `<h1>You are here</h1>
-                    <p>Latitude: ${here.lat}</p>
-                    <p>Longitude: ${here.lng}</p>`
-            );
-
-            info.open(gmap.getMap(), marker);
-            gmap.getMap().panTo(here);
-
             marker.addListener('click', () => {
-                info.open(gmap.getMap(), marker);
+                info.open(gmap.map, marker);
             });
         }, (error) => {
             const info = Map.createInfoWindow(defaultLoc, `<h2>${error}</h2>`);
-            info.open(gmap.getMap());
+            info.open(gmap.map);
         });
 
         geo.getCurrentPosition();

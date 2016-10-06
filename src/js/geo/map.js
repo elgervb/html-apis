@@ -73,7 +73,6 @@ export default class Map {
         return coordInfoWindow;
     }
 
-
     createMarker(position) {
         const marker = new google.maps.Marker({
             position,
@@ -89,7 +88,7 @@ export default class Map {
      *
      * @return google.maps.Map
      */
-    getMap() {
+    get map() {
         return this._map;
     }
 }
