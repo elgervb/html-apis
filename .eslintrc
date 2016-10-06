@@ -1,9 +1,10 @@
 {
     "extends": "airbnb-base",
     "rules": {
+        "class-methods-use-this": 0,
         "indent": [2, 4],
         "no-debugger": 1,
-        "class-methods-use-this": 0,
+        "no-param-reassign": ["error", { "props": false }],
         "no-restricted-syntax": [
             2,
             "ForInStatement",
@@ -15,7 +16,8 @@
         "no-plusplus": 0,
         "no-underscore-dangle": 0,
         "one-var": [2, { "var": "always", "let": "always", "const": "never" }],
-        "one-var-declaration-per-line": [2, "initializations"]
+        "one-var-declaration-per-line": [2, "initializations"],
+        "space-before-function-paren": ["error", "never"]
     },
     "env": {
         "browser": true
