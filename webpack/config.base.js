@@ -13,12 +13,18 @@ export const source = path.resolve(path.join(config.src));
 export const destination = path.resolve(path.join(config.dest));
 
 export default () => ({
-    entry: [
-        'babel-polyfill',
-        path.join(source, 'scss', 'main.scss'),
-        path.join(source, 'js', 'geolocation.js'),
-        path.join(source, 'index.html'),
-    ],
+    entry: {
+        main: [
+            path.join(source, 'scss', 'main.scss'),
+        ],
+        geolocation: [
+            path.join(source, 'js', 'geolocation.js'),
+        ],
+        particles: [
+            path.join(source, 'js', 'particles.js'),
+            path.join(source, 'js', 'particles', 'particles.scss'),
+        ],
+    },
 
     module: {
         preLoaders: [
@@ -36,7 +42,8 @@ export default () => ({
         loaders: [
             {
                 test: /\.scss$/,
-                loaders: ['style', 'css?sourceMap', 'postcss?sourceMap', 'sass?sourceMap'],
+                loader: ExtractTextPlugin.extract('style',
+                    'css?sourceMap!postcss?sourceMap!sass??outputStyle=expanded&sourceMap=true&sourceMapContents=true'),
             },
             {
                 test: /\.js$/,
@@ -77,7 +84,9 @@ export default () => ({
 
     output: {
         filename: 'js/[name].js',
+        publicPath: '/',
         path: destination,
+        sourceMapFilename: '[file].map',
     },
 
     postcss: () => [cssnext(cssnextConfig), cssMqpacker],
@@ -90,8 +99,9 @@ export default () => ({
                 to: path.join(destination, 'assets'),
             },
             {
-                from: path.join(source, 'index.html'),
-                to: path.join(destination, 'index.html'),
+                from: path.join(source, '*.html'),
+                to: path.join(destination),
+                flatten: true,
             },
         ]),
         new webpack.NoErrorsPlugin(),

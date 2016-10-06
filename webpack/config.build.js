@@ -1,7 +1,7 @@
 import webpack from 'webpack';
 import base from './config.base';
 
-const config = base('development');
+const config = base('production');
 
 // production overrides go here
 config.production = true;

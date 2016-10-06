@@ -1,0 +1,9 @@
+.particles {
+    margin: 0 auto;
+    width: 50%;
+
+    .controls {
+        position: fixed;
+        z-index: 1001;
+    }
+}
