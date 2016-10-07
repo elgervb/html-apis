@@ -3,6 +3,7 @@
     "rules": {
         "class-methods-use-this": 0,
         "indent": [2, 4],
+        "max-len": ["error", 180],
         "no-debugger": 1,
         "no-param-reassign": ["error", { "props": false }],
         "no-restricted-syntax": [
