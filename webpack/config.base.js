@@ -22,7 +22,6 @@ export default () => ({
         ],
         particles: [
             path.join(source, 'js', 'particles.js'),
-            path.join(source, 'js', 'particles', 'particles.scss'),
         ],
     },
 

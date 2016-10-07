@@ -1,3 +1,4 @@
+import {} from './particles/particles.scss';
 
 const settings = {
     number: 5,           // number of particles

@@ -3,7 +3,12 @@
     width: 50%;
 
     .controls {
-        position: fixed;
+        position: relative;
+        text-align: center;
         z-index: 1001;
+
+        .btn {
+            font-size: 2em;
+        }
     }
 }
