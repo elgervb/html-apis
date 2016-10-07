@@ -1,6 +1,43 @@
 
 ![Travis CI build](https://travis-ci.org/elgervb/webpack-starter.svg)
 
+# DEMOS
+
+ * http://caniuse.com/#feat=online-status
+ * http://caniuse.com/#feat=indexeddb
+ * http://caniuse.com/#search=Selection
+ * http://caniuse.com/#feat=webworkers
+ * http://caniuse.com/#feat=namevalue-storage Web Storage
+ * http://caniuse.com/#feat=websockets
+ * http://caniuse.com/#feat=eventsource Server send events
+ * http://caniuse.com/#feat=mutationobserver
+ * http://caniuse.com/#feat=geolocation
+ * http://caniuse.com/#search=canvas
+ * http://caniuse.com/#feat=stream getUserMedia/Stream API
+ * http://caniuse.com/#feat=push-api
+ * http://caniuse.com/#feat=channel-messaging
+ * http://caniuse.com/#feat=x-doc-messaging
+ * http://caniuse.com/#feat=forms
+ * http://caniuse.com/#feat=form-validation
+ * http://caniuse.com/#feat=filereader
+ * http://caniuse.com/#feat=file
+ * http://caniuse.com/#feat=page-transition-events
+ * http://caniuse.com/#feat=history pushstate
+ * http://caniuse.com/#search=audio
+ * http://caniuse.com/#search=video
+ * http://caniuse.com/#feat=notifications
+ * http://caniuse.com/#feat=contenteditable
+ * http://caniuse.com/#feat=dragndrop
+ * http://caniuse.com/#feat=focusin-focusout-events
+ * http://caniuse.com/#feat=registerprotocolhandler
+ * http://caniuse.com/#feat=web-animation
+ * http://caniuse.com/#feat=fullscreen
+ * http://caniuse.com/#feat=screen-orientation
+ * http://caniuse.com/#feat=pointerlock
+ * http://caniuse.com/#feat=battery-status
+ * http://caniuse.com/#feat=speech-synthesis
+ * http://caniuse.com/#feat=pagevisibility
+
 # PREREQUISITES
 
 NodeJS V6.3.0
