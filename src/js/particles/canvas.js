@@ -1,6 +1,7 @@
 import Particle from './particle';
 
 export default class Canvas {
+
     constructor(canvasEl, settings) {
         this.settings = settings;
         this.particles = [];
@@ -36,9 +37,8 @@ export default class Canvas {
     }
 
     _init(canvasEl, settings) {
-        canvasEl.width = settings.width;
         canvasEl.height = settings.height;
-        canvasEl.style.backgroundColor = 'blue';
+        canvasEl.width = settings.width;
         canvasEl.style.opacity = 1;
         canvasEl.style.position = 'fixed';
         canvasEl.style.left = 0;
@@ -47,6 +47,19 @@ export default class Canvas {
 
         for (let i = 0; i < settings.number; i++) {
             this.add(new Particle(settings));
+        }
+
+        window.addEventListener('resize', this._onResize.bind(this));
+    }
+
+    _onResize() {
+        const canvasEl = this.ctx.canvas;
+        if (canvasEl) {
+            this.settings.height = window.innerHeight;
+            this.settings.width = window.innerWidth;
+
+            canvasEl.height = this.settings.height;
+            canvasEl.width = this.settings.width;
         }
     }
 }

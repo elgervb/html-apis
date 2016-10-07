@@ -16,6 +16,7 @@ canvas.draw();
 document.querySelector('.btn-add-particle').addEventListener('mouseup', () => {
     canvas.add(new Particle(settings));
 });
+
 document.querySelector('.btn-remove-particle').addEventListener('mouseup', () => {
     canvas.remove();
 });
