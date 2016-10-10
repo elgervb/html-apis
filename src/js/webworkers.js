@@ -14,7 +14,7 @@ if (window.Worker) {
     const worker = new Worker('js/webworkers-thread.js');
 
     worker.onmessage = (e) => {
-        log(`Client: Base64 encrypted <em>${e.data.text}</em> into <em>${e.data.result}</em>`);
+        log(`Client: Base64 encode <em>${e.data.text}</em> into <em>${e.data.result}</em>`);
     };
 
     const input = document.querySelector('#text');
