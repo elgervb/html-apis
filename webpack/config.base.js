@@ -18,10 +18,10 @@ export default () => ({
             path.join(source, 'scss', 'main.scss'),
         ],
         geolocation: [
-            path.join(source, 'js', 'geolocation.js'),
+            path.join(source, 'js', 'geolocation'),
         ],
         particles: [
-            path.join(source, 'js', 'particles.js'),
+            path.join(source, 'js', 'particles'),
         ],
     },
 
