@@ -10,7 +10,7 @@ export default class Canvas {
         this._init(canvasEl, settings);
     }
 
-    add(particle) {
+    addParticle(particle = undefined) {
         /* eslint-disable no-console */
         console.log(`add particle nr ${this.particles.length + 1}`);
         /* eslint-enable no-console */
@@ -51,7 +51,7 @@ export default class Canvas {
         canvasEl.id = 'particles';
 
         for (let i = 0; i < settings.number; i++) {
-            this.add(new Particle(settings));
+            this.addParticle(new Particle(settings));
         }
 
         window.addEventListener('resize', this._onResize.bind(this));

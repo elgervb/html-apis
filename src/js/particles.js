@@ -15,7 +15,7 @@ canvas.draw();
 // Event listeners
 let timer;
 const add = (e) => {
-    canvas.add(new Particle(settings, { x: e.clientX, y: e.clientY }));
+    canvas.addParticle(new Particle(settings, { x: e.clientX, y: e.clientY }));
 };
 
 document.querySelector('#particles').addEventListener('mousedown', (e) => {
