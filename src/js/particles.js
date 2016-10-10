@@ -19,7 +19,7 @@ const add = (e) => {
 };
 
 document.querySelector('#particles').addEventListener('mousedown', (e) => {
-    timer = setInterval(() => { add(e); }, 250);
+    timer = setInterval(() => { add(e); }, 10);
     // for single click
     add(e);
 });
@@ -30,7 +30,7 @@ document.querySelector('#particles').addEventListener('mouseup', () => {
 });
 
 document.querySelector('.btn-remove-particle').addEventListener('mousedown', () => {
-    timer = setInterval(canvas.remove.bind(canvas), 250);
+    timer = setInterval(canvas.remove.bind(canvas), 100);
 });
 
 document.querySelector('.btn-remove-particle').addEventListener('mouseup', () => {
