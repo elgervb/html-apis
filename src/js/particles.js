@@ -15,12 +15,13 @@ canvas.draw();
 // Event listeners
 let timer;
 const add = (e) => {
-    console.log(e);
     canvas.add(new Particle(settings, { x: e.clientX, y: e.clientY }));
 };
 
 document.querySelector('#particles').addEventListener('mousedown', (e) => {
     timer = setInterval(() => { add(e); }, 250);
+    // for single click
+    add(e);
 });
 document.querySelector('#particles').addEventListener('mouseup', () => {
     if (timer) {
