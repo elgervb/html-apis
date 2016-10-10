@@ -13,10 +13,28 @@ const canvas = new Canvas(c, settings);
 canvas.draw();
 
 // Event listeners
-document.querySelector('.btn-add-particle').addEventListener('mouseup', () => {
-    canvas.add(new Particle(settings));
+let timer;
+const add = (e) => {
+    console.log(e);
+    canvas.add(new Particle(settings, { x: e.clientX, y: e.clientY }));
+};
+
+document.querySelector('#particles').addEventListener('mousedown', (e) => {
+    timer = setInterval(() => { add(e); }, 250);
+});
+document.querySelector('#particles').addEventListener('mouseup', () => {
+    if (timer) {
+        clearInterval(timer);
+    }
+});
+
+document.querySelector('.btn-remove-particle').addEventListener('mousedown', () => {
+    timer = setInterval(canvas.remove.bind(canvas), 250);
 });
 
 document.querySelector('.btn-remove-particle').addEventListener('mouseup', () => {
+    if (timer) {
+        clearInterval(timer);
+    }
     canvas.remove();
 });

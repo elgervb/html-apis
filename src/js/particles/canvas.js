@@ -33,7 +33,12 @@ export default class Canvas {
     }
 
     remove() {
-        this.particles.pop();
+        if (this.particles.length > 0) {
+            /* eslint-disable no-console */
+            console.log(`remove particle nr ${this.particles.length}`);
+            /* eslint-enable no-console */
+            this.particles.pop();
+        }
     }
 
     _init(canvasEl, settings) {

@@ -9,7 +9,12 @@
 
         .btn {
             color: #fff;
-            font-size: 2em;
+            font-size: 4em;
+            margin-top: .5em;
+
+            &:first-child {
+                margin-right: 2em;
+            }
         }
     }
 }

@@ -1,15 +1,22 @@
 
 export default class Particle {
     /**
-     *  @param ParticleSettings
+     * @param {ParticleSettings} settings the settings
+     * @param {object} initCoords the initial x and y coordinate to place the Particle
      */
-    constructor(settings) {
+    constructor(settings, initCoords) {
         this.settings = settings;
 
         this.radius = (Math.random() * settings.particleMaxWidth) + settings.particleMinWidth;
 
-        this.x = Math.max(this.radius + 1, Math.min(settings.width - this.radius, Math.random() * settings.width));
-        this.y = Math.max(this.radius + 1, Math.min(settings.height - this.radius, Math.random() * settings.height));
+        if (initCoords && initCoords.x && initCoords.y) {
+            this.x = initCoords.x;
+            this.y = initCoords.y;
+        } else {
+            const initialPosition = this._calculateInitialPosition(this.radius, settings);
+            this.x = initialPosition.x;
+            this.y = initialPosition.y;
+        }
         this.vx = (Math.random() * settings.velocityX) + ((settings.velocityX / 2) * -1);
         this.vy = (Math.random() * settings.velocityY) + ((settings.velocityY / 2) * -1);
         this.color = this._createColor();
@@ -27,6 +34,15 @@ export default class Particle {
 
         this.x += this.vx;
         this.y += this.vy;
+    }
+
+    _calculateInitialPosition(radius, settings) {
+        const calc = dimension => Math.max(radius + 1, Math.min(dimension - radius, Math.random() * dimension));
+
+        return {
+            x: calc(settings.width),
+            y: calc(settings.height),
+        };
     }
 
     _collisionDetectionCanvasBorders() {
