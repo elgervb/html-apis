@@ -14,14 +14,14 @@ export const destination = path.resolve(path.join(config.dest));
 
 export default () => ({
     entry: {
-        main: [
-            path.join(source, 'scss', 'main.scss'),
+        main: [path.join(source, 'scss', 'main.scss')],
+        geolocation: [path.join(source, 'js', 'geolocation')],
+        particles: [path.join(source, 'js', 'particles')],
+        webworkers: [
+            path.join(source, 'js', 'webworkers'),
         ],
-        geolocation: [
-            path.join(source, 'js', 'geolocation'),
-        ],
-        particles: [
-            path.join(source, 'js', 'particles'),
+        webworkers_thread: [
+            path.join(source, 'js', 'webworkers-thread'),
         ],
     },
 
