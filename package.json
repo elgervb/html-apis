@@ -81,6 +81,7 @@
     "stylelint": "7.0.2",
     "stylelint-property-unknown": "1.0.1",
     "wdio-jasmine-framework": "0.2.6",
-    "webpack-dev-server": "1.16.1"
+    "webpack-dev-server": "1.16.1",
+    "worker-loader": "0.7.1"
   }
 }

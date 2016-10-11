@@ -11,6 +11,7 @@ onmessage = (e) => {
     console.log('Worker: got ', e.data);
     /* eslint-enable */
     const result = b64EncodeUnicode(e.data);
+
     setTimeout(() => {
         postMessage({
             result,

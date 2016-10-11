@@ -1,3 +1,5 @@
+import WebWorker from './webworkers.worker';
+
 /* global document */
 function log(msg) {
     const container = document.querySelector('#log');
@@ -11,7 +13,7 @@ function log(msg) {
 }
 
 if (window.Worker) {
-    const worker = new Worker('js/webworkers_thread.js');
+    const worker = new WebWorker();
 
     worker.onmessage = (e) => {
         log(`Client: Base64 encode <em>${e.data.text}</em> into <em>${e.data.result}</em>`);

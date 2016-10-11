@@ -17,12 +17,7 @@ export default () => ({
         main: [path.join(source, 'js', 'main.js')],
         geolocation: [path.join(source, 'js', 'geolocation')],
         particles: [path.join(source, 'js', 'particles')],
-        webworkers: [
-            path.join(source, 'js', 'webworkers'),
-        ],
-        webworkers_thread: [
-            path.join(source, 'js', 'webworkers_thread'),
-        ],
+        webworkers: [path.join(source, 'js', 'webworkers')],
     },
 
     module: {
@@ -34,8 +29,8 @@ export default () => ({
             },
             {
                 test: /\.html/,
-                loader: 'htmlhint',
                 exclude: [/node_modules/],
+                loader: 'htmlhint',
             },
         ],
         loaders: [
@@ -43,6 +38,11 @@ export default () => ({
                 test: /\.scss$/,
                 loader: ExtractTextPlugin.extract('style',
                     'css?sourceMap!postcss?sourceMap!sass??outputStyle=expanded&sourceMap=true&sourceMapContents=true'),
+            },
+            {
+                test: /worker\.js$/,
+                exclude: [/node_modules/],
+                loaders: ['babel', 'worker?name=js/[name].js'], // same as output.filename
             },
             {
                 test: /\.js$/,
