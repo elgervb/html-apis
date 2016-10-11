@@ -11,7 +11,7 @@ function log(msg) {
 }
 
 if (window.Worker) {
-    const worker = new Worker('js/webworkers-thread.js');
+    const worker = new Worker('js/webworkers_thread.js');
 
     worker.onmessage = (e) => {
         log(`Client: Base64 encode <em>${e.data.text}</em> into <em>${e.data.result}</em>`);
