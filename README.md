@@ -1,5 +1,9 @@
 
-![Travis CI build](https://travis-ci.org/elgervb/webpack-starter.svg)
+# HTML API's
+
+playground for HTML API's
+
+## [see the slides](https://slides.com/elgervanboxtel/html5-api-s/)
 
 # DEMOS
 
@@ -67,12 +71,3 @@ Default port = 4000
 will clean the previous build and make a new one inside `/build`
 
 after having ran the build, we can check it by running `npm run start:prod`. This will run a server against the production build.
-
-# METHODS & TECHNIQUES
-
- * front end build through [WebPack](https://webpack.github.io/)
- * all styling is done with [Sass](http://sass-lang.com/)
- * css methodology: [BEM](http://getbem.com/introduction/)
- * please respect [Sass Guidelines](http://sass-guidelin.es/)
- * unit tests with [KarmaJS](https://karma-runner.github.io) and [JasmineJS](http://jasmine.github.io/)
- * end to end tests with [WebDriverIO](http://webdriver.io/)
