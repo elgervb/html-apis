@@ -5,7 +5,7 @@ playground for HTML API's
 
 ## [see the slides](https://slides.com/elgervanboxtel/html5-api-s/)
 
-# DEMOS
+# DEMOS (https://elgervanboxtel.nl/labs/html5-api/)
 
  * http://caniuse.com/#feat=online-status
  * http://caniuse.com/#feat=indexeddb
