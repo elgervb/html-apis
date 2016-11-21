@@ -8,7 +8,7 @@ function b64EncodeUnicode(str) {
 /* eslint-disable no-global-assign */
 onmessage = (e) => {
     /* eslint-disable no-console */
-    console.log('Worker: got ', e.data);
+    console.log('Worker: received ', e.data, '. Encoding ...');
     /* eslint-enable */
     const result = b64EncodeUnicode(e.data);
 

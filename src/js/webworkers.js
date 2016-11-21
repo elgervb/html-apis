@@ -1,4 +1,4 @@
-import WebWorker from './webworkers.worker';
+import Base64Worker from './webworkers.worker';
 
 /* global document */
 function log(msg) {
@@ -13,10 +13,10 @@ function log(msg) {
 }
 
 if (window.Worker) {
-    const worker = new WebWorker();
+    const worker = new Base64Worker();
 
     worker.onmessage = (e) => {
-        log(`Client: Base64 encode <em>${e.data.text}</em> into <em>${e.data.result}</em>`);
+        log(`Client: receive <em>${e.data.text}</em> == Base64: <em>${e.data.result}</em>`);
     };
 
     const input = document.querySelector('#text');
